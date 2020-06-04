@@ -91,42 +91,16 @@
     </div>
     <script>
         // mendapatkan akses dari element html berdasarkan id
-        const hobbiesResult = document.getElementById('hobbies-result');
         const transportResult = document.getElementById('transport-result');
-        const musicResult = document.getElementById('music-result');
-        // mendapatkan akses dari element html berdasarkan id
-        const sport = document.getElementById('sports-checkbox');
-        const vGame = document.getElementById('games-checkbox');
-        const music = document.getElementById('music-checkbox');
-        // mendapatkan koleksi element berbentuk array element children berdasarkan element yang dipilih
-        var hobbiesChildren = hobbiesResult.children;
+        // mandapatkan akses dari element berdasakan name
+        const radioButton = document.getElementsByName('transport-method');
 
-        // merubah warna text sports sidebar berdasarkan onchange
-        sport.addEventListener('change', ($event) => {
-            if ($event.target.checked) {
-                hobbiesChildren[0].classList.remove('text-secondary');
-            } else {
-                hobbiesChildren[0].classList.add('text-secondary');
-            }
-        })
-
-        // merubah warna text video games sidebar berdasarkan onchange
-        vGame.addEventListener('change', ($event) => {
-            if ($event.target.checked) {
-                hobbiesChildren[1].classList.remove('text-secondary');
-            } else {
-                hobbiesChildren[1].classList.add('text-secondary');
-            }
-        })
-
-        // merubah warna text music sidebar berdasarkan onchange
-        music.addEventListener('change', ($event) => {
-            if ($event.target.checked) {
-                hobbiesChildren[2].classList.remove('text-secondary');
-            } else {
-                hobbiesChildren[2].classList.add('text-secondary');
-            }
-        })
+        let x;
+        for (x = 0; x < radioButton.length; x++) {
+            radioButton[x].addEventListener('change', ($event) => {
+                transportResult.textContent = $event.target.value;
+            })
+        }
     </script>
 </body>
 
