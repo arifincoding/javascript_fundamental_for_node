@@ -56,7 +56,7 @@
                     // mengubah data text dari api menjadi format json
                     const response = JSON.parse(apiRequest.response);
                     // jika data yang diminta tidak ada atau 404 maka akan mencetak kata kosong
-                    if (apiRequest.status == '404') {
+                    if (apiRequest.status === 404) {
                         reportSection.textContent = 'kosong'
                     } else {
                         reportSection.textContent = 'The weather in ' + response.name + ' is ' + response
