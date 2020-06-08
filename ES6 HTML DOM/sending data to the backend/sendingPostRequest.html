@@ -68,7 +68,7 @@
             // membuat object promise untuk menangani data asycronus
             return new Promise((resolve, reject) => {
                 var request = new XMLHttpRequest()
-                // menentukan metho,url api dan endpointnya
+                // menentukan method,url api dan endpointnya
                 request.open('POST', api + '/create-post')
 
                 request.onreadystatechange = () => {
@@ -95,7 +95,7 @@
             try {
                 const requestPromise = makeRequest(post)
                 const response = await requestPromise
-                // mencetak hasil response dari api ke layar
+                // mencetak hasil response data dari api ke layar
                 responseMessage.textContent = response.message
                 responseTitle.textContent = response.post.title
                 responseId.textContent = response.post.id
