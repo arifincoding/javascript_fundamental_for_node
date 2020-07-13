@@ -48,6 +48,7 @@
                 anak.textContent = state.todos[index]
                 list.appendChild(anak)
             }
+            textList.value = ''
         } else {
             alert('tidak ada data')
         }
@@ -60,6 +61,7 @@
                 todos: []
             }
             list.innerHTML = ''
+            textList.value = ''
         }
     })
 </script>
