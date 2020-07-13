@@ -1,0 +1,32 @@
+<p id='add'></p>
+<p id='remove'></p>
+
+<script>
+    // store data
+    // sessionStorage.setItem(key,value)
+    sessionStorage.setItem('username', 'ronald')
+
+    if (sessionStorage.getItem('username')) {
+        // get data
+        document.getElementById('add').innerHTML = sessionStorage.getItem('username')
+    } else {
+        document.getElementById('add').innerHTML = 'sorry data not found!'
+    }
+
+    // remove data
+    // sessionStorage.removeItem(key)
+    sessionStorage.removeItem('username')
+
+    if (sessionStorage.getItem('username')) {
+        // get data
+        document.getElementById('remove').innerHTML = sessionStorage.getItem('username')
+    } else {
+        document.getElementById('remove').innerHTML = 'sorry data not found!'
+    }
+</script>
+
+<!-- *note penting -->
+<!-- 1.Session Storage untuk per tab browser. Jadi data yang disimpan dalam satu tab browser tidak akan dapat diakses di tab lain -->
+<!-- 2.Setiap tab browser memiliki data penyimpanan sesi terpisah -->
+<!-- 3.Data Penyimpanan Sesi akan dihapus ketika kita menutup tab -->
+<!-- 4.Itu juga akan dihapus ketika kita menutup browser -->

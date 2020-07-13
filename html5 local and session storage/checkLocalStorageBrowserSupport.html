@@ -1,0 +1,15 @@
+<p id='result'></p>
+
+<script>
+    // check browser support
+    if (typeof (Storage) != 'undefined') {
+        // store
+        localStorage.setItem('lastname', 'smith')
+        // retrieve
+        document.getElementById('result').innerHTML = localStorage.getItem('lastname')
+        // remove local storage
+        localStorage.removeItem('lastname')
+    } else {
+        document.getElementById('result').innerHTML = 'sorry, your browser does not support web storage...'
+    }
+</script>

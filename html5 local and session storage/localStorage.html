@@ -1,0 +1,35 @@
+<p id='add'></p>
+<p id='remove'></p>
+
+<script>
+    // store data
+    // localStorage.setItem(key,value) 
+    localStorage.setItem('username', 'arifin')
+
+    if (localStorage.getItem('username')) {
+        // get data
+        document.getElementById('add').innerHTML = localStorage.getItem('username')
+    } else {
+        document.getElementById('add').innerHTML = 'sorry data not found!'
+    }
+
+    // remove data
+    // localStorage.removeItem(key)
+    localStorage.removeItem('username')
+
+    if (localStorage.getItem('username')) {
+        // get data
+        document.getElementById('remove').innerHTML = localStorage.getItem('username')
+    } else {
+        document.getElementById('remove').innerHTML = 'sorry data not found!'
+    }
+</script>
+
+<!-- *note penting -->
+<!-- 1.Penyimpanan Lokal digunakan untuk menyimpan data di seluruh aplikasi -->
+<!-- 2.Data yang disimpan dalam penyimpanan lokal akan dapat diakses di semua tab atau halaman hanya untuk domain itu (seperti www.google.com , www.medium.com , dll) -->
+<!-- 3.Data Penyimpanan Lokal yang disimpan untuk domain tertentu akan dapat diakses bahkan ketika Anda membuka jendela browser lain (Control + n atau Command + n (Mac)) pada browser yang sama -->
+<!-- 4.Data Penyimpanan Lokal yang disimpan pada sesi penelusuran normal tidak akan tersedia saat Anda membuka browser dalam penelusuran pribadi atau dalam mode Penyamaran. -->
+<!-- 5.Data Penyimpanan Lokal tidak akan dihapus bahkan jika Anda menutup browser. Karena disimpan di cache browser Anda di mesin Anda. -->
+<!-- 6.Data Penyimpanan Lokal hanya akan dihapus ketika Anda menghapus cache browser menggunakan Control + Shift + Delete atau Command + Shift + Delete (Mac) -->
+<!-- 7.Kamu juga dapat menghapus data penyimpanan lokal secara terprogram -->
