@@ -1,0 +1,65 @@
+<input type="text" id='textList'>
+<button id='btnTextList'>add</button>
+<button id='btnReset'>reset</button>
+
+<ol id="list">
+</ol>
+
+<script>
+    var state
+    var btnAdd = document.getElementById('btnTextList')
+    var textList = document.getElementById('textList')
+    var btnReset = document.getElementById('btnReset')
+    var list = document.getElementById('list')
+
+    if (localStorage.getItem('todos')) {
+        state = {
+            todos: JSON.parse(localStorage.getItem('todos'))
+        }
+        for (let index in state.todos) {
+            var anak = document.createElement('li')
+            anak.textContent = state.todos[index]
+            list.appendChild(anak)
+        }
+    } else {
+        state = {
+            todos: []
+        }
+    }
+
+    btnAdd.addEventListener('click', () => {
+        if (textList.value) {
+
+            state.todos.push(textList.value)
+
+            const json = JSON.stringify(state.todos)
+            localStorage.setItem('todos', json)
+
+            const todosString = localStorage.getItem('todos')
+            if (todosString) {
+                const parsedJson = JSON.parse(todosString)
+                state = {
+                    todos: parsedJson
+                }
+            }
+            list.innerHTML = ''
+            for (let index in state.todos) {
+                var anak = document.createElement('li')
+                anak.textContent = state.todos[index]
+                list.appendChild(anak)
+            }
+        } else {
+            alert('tidak ada data')
+        }
+    })
+
+    btnReset.addEventListener('click', () => {
+        if (localStorage.getItem('todos')) {
+            localStorage.removeItem('todos')
+            state = {
+                todos: []
+            }
+            list.innerHTML = ''
+        }
+    })
+</script>
