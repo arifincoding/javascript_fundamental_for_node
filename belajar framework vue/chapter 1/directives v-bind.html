@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar directives v-bind</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in apiResponse">
+                <!-- v-bind berfungsi untuk menaruh value variabel ke value atribut yang ditentukan -->
+                <a v-bind:href="item.url">{{ item.name }}</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            apiResponse: [{
+                    name: 'Github',
+                    url: 'https://www.github.com'
+                },
+                {
+                    name: 'Twitter',
+                    url: 'https://www.twitter.com'
+                },
+                {
+                    name: 'Netlify',
+                    url: 'https://www.netlify.com'
+                }
+            ]
+        }
+    })
+</script>
+
+</html>

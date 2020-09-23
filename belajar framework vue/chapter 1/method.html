@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar method</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="changeColor()">Click me</button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            favoriteColor: 'blue'
+        },
+        computed: {
+            label() {
+                return 'color: ' + this.favoriteColor
+            }
+        },
+        // method harus berisi function
+        // function dapat digunakan kembali kapanpun
+        methods: {
+            alertColor(colorLabel) {
+                alert('my favorite ' + colorLabel)
+            },
+            changeColor() {
+                this.favoriteColor = 'teal'
+                this.alertColor(this.label)
+            }
+        }
+    })
+</script>
+
+</html>

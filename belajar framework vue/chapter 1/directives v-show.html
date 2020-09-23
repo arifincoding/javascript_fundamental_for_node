@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar directives v-show</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- jika variabel showModal bernilai false maka isi element tidak ditampilkan dan jika variabel showModal bernilai true maka isi element ditampilkan -->
+        <div v-show="showModal">
+            <h1>odading mang oleh</h1>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            showModal: false
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar directives if else if else</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- jika variable userPermission bernilai default -->
+        <section v-if="userPermission === 'default'">
+            <h1>default</h1>
+        </section>
+        <!-- jika userPermission bernilai admin -->
+        <section v-else-if="userPermission === 'admin'">
+            <h1>admin</h1>
+        </section>
+        <!-- jika userPermission tidak keduanya -->
+        <section v-else>
+            <h1>lainnya</h1>
+        </section>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            userPermission: 'admin'
+        }
+    })
+</script>
+
+</html>

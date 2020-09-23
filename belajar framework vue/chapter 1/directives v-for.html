@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>belajar directives v-for</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Vue Mart</h1>
+        <h2>Shopping Cart</h2>
+        <ul>
+            <!-- v-for berfungsi untuk perulangan -->
+            <li v-for="item in shoppingCart">
+                {{ item.label }}: ${{ item.cost }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            shoppingCart: [{
+                    label: 'Apples',
+                    cost: 6
+                },
+                {
+                    label: 'Bananas',
+                    cost: 2
+                },
+                {
+                    label: 'Coconuts',
+                    cost: 8
+                }
+            ]
+        }
+    })
+</script>
+
+</html>

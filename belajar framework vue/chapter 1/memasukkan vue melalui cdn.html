@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue cdn</title>
+</head>
+
+<body>
+    <div id='app'>
+        <h1>My first vue.js App!</h1>
+        <p>can't wait to build so many incredible things!</p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    // untuk mengecek vue berhasil dimuat atau tidak
+    console.log(Vue)
+    const app = new Vue({
+        // el adalah kependekan element fungsinya mirip dengan document.getElement
+        el: '#app'
+    })
+</script>
+
+</html>

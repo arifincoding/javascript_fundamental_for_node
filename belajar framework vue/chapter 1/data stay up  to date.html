@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stay up to date</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>VueMart</h1>
+        <h2>Shopping Cart</h2>
+        <ul>
+            <li>Apples: ${{ costOfApples }}</li>
+            <li>Bananas: ${{ costOfBananas }}</li>
+            <li>Coconut: ${{ costOfCoconuts }}</li>
+        </ul>
+        <p>Total: ${{ totalAmount }}</p>
+        <h2>Store Hours</h2>
+        <p>Sunday: 10:00 - 16:00</p>
+        <p>Monday to Friday: 09:00 - 17:00</p>
+        <p>Saturday: 09:30 - 18:00</p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            costOfApples: 6,
+            costOfBananas: 2,
+            costOfCoconuts: 8
+        },
+        // properti computed berfungsi untuk mengolah value yang berasal dari property data menympan value perhitungan tersebut pada cache mengembalikan nilainya dan mengevaluasi perubahannya 
+        // jika value pada variabel property data berubah maka hasih dari computed juga berubah
+        // pada properti computed harus berisi dengan fungsi dilengkapi dengan return
+        // setiap fungsi harus ada pengembaliannya (return)
+        // pokoknya yang menyangkut perhitungan berada di computed
+        computed: {
+            totalAmount: function () {
+                return this.costOfApples + this.costOfBananas + this.costOfCoconuts
+            }
+        }
+    })
+</script>
+
+</html>

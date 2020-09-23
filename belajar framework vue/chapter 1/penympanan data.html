@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue penyimpanan data</title>
+</head>
+
+<body>
+    <div id='app'>
+        <h1>VueMart</h1>
+        <h2>Shopping Carts</h2>
+        <ul>
+            <!-- untuk merender/menampilkan datanya kita bisa menggunakan format dibawah -->
+            <li>pesan: {{ message }}</li>
+            <li>isi: {{ groceries }}</li>
+            <li>info: {{ info.topic }}</li>
+            <li>jumlah: {{ answerToLife + info.length }}</li>
+            <li>waktunya makan:{{ timeForLuch }}</li>
+            <!-- ini juga dapat merender ekspresi javascript dasar seperti -->
+            <li>ekpresi js dasar: {{ "ben".toUpperCase() }}</li>
+            <li>{{ (2+8)*10 }}</li>
+        </ul>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        // el adalah kependekan element fungsinya mirip dengan document.getElement
+        el: '#app',
+        // berfungsi untuk menyimpan data yang nantinya akan ditampilkan pada browser
+        data: {
+            message: 'hello OpenClassrooms!', //string
+            answerToLife: 42, //Number
+            groceries: ['Apples', 'Bananas', 'Coconuts'], //Array
+            timeForLuch: false, //Boolean
+            info: { //Object
+                topic: 'VueJS',
+                length: 5
+            }
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar directives v-on</title>
+</head>
+<div id="app">
+    <button v-on:click="alertColor(label)">click me</button>
+</div>
+
+<body>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            favoriteColor: 'blue'
+        },
+        computed: {
+            label: function () {
+                return 'Color: ' + this.favoriteColor
+            }
+        },
+        // properti methods berfungsi untuk function2 yang diperlukan
+        methods: {
+            alertColor: function (color) {
+                alert('My favorite color is ' + color)
+            },
+            changeColor: function () {
+                console.log('I want to change my favorite color!')
+            }
+        }
+    })
+</script>
+
+</html>

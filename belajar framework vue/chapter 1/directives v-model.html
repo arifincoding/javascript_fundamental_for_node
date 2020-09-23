@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar directives v-model</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-model berfungsi untuk menyimpan setiap inputan yang dimasukkan ke dalam variable yang ada pada properti data -->
+        <label for="un">Username</label>
+        <input type="text" id="un" v-model="username">
+        <label for="pw">Password</label>
+        <input type="text" id="pw" v-model="password">
+        <p>Username:{{ username }}</p>
+        <p>Password:{{ password }}</p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            username: '',
+            password: ''
+        }
+    })
+</script>
+
+</html>
