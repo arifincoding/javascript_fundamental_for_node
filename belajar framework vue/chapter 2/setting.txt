@@ -1,0 +1,23 @@
+untuk membuat app vue baru ketik perintah
+vue create nama-app
+
+kita akan banyak menhabiskan waktu pada folder src karena disitulah tempat kita membangun proyek kita nantinya
+
+package.json berfungsi untuk konfigurasi dasar dari proyek
+
+script pada terminal
+- Serve - Ini adalah skrip yang akan memulai lingkungan pengembangan lokal untuk Anda kerjakan.
+
+- Build  - Ini adalah skrip yang bertanggung jawab untuk membuat artefak kode akhir yang akan Anda kirimkan ke klien atau pengguna.
+
+pada folder src terdapat
+-Assets : Direktori ini adalah tempat Anda meletakkan hal-hal seperti gambar dan aset lain yang diperlukan yang mungkin perlu Anda rujuk di aplikasi Anda (misalnya, film, dokumen PDF, dll.)
+
+-components : direktori ini akan menampung komponen untuk aplikasi kita
+-main.js : disini konfigurasi vue tingkat tinggi di tetapkan
+
+untuk menjalankan aplikasi dalam mode development ketik
+sudo npm run serve
+
+untuk menjalankan aplikasi dalam production ketik
+sudo npm run build
