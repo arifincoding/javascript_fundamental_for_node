@@ -4,14 +4,16 @@ import {
 } from 'vue-router'
 import Home from '../views/Home.vue'
 import ItemDetail from '../views/itemDetail.vue'
-import BeforeCreateHook from '../views/beforeCreateHook.vue'
-import CreatedHook from '../views/createdHook.vue'
-import BeforeMountHook from '../views/beforeMountHook.vue'
-import MountedHook from '../views/mountedHook.vue'
-import BeforeUpdateHook from '../views/beforeUpdateHook.vue'
-import UpdatedHook from '../views/updatedHook.vue'
-import BeforeUnmountHook from '../views/beforeUnmountHook.vue'
-import UnmountedHook from '../views/unmountedHook.vue'
+import BeforeCreateHook from '../views/hookLifeCycle/beforeCreateHook.vue'
+import CreatedHook from '../views/hookLifeCycle/createdHook.vue'
+import BeforeMountHook from '../views/hookLifeCycle/beforeMountHook.vue'
+import MountedHook from '../views/hookLifeCycle//mountedHook.vue'
+import BeforeUpdateHook from '../views/hookLifeCycle/beforeUpdateHook.vue'
+import UpdatedHook from '../views/hookLifeCycle/updatedHook.vue'
+import BeforeUnmountHook from '../views/hookLifeCycle/beforeUnmountHook.vue'
+import UnmountedHook from '../views/hookLifeCycle/unmountedHook.vue'
+import SassStyling from '../views/styling/sassStyling.vue'
+import DefaultStyling from '../views/styling/defaultStyling.vue'
 
 // path berguna untuk alamat url untuk komponen yang telah kita buat
 // name berguna untuk pelabelan dan memudahkan untuk debuging(sifat opsional)
@@ -67,6 +69,14 @@ const routes = [{
   {
     path: '/unmounted-hook',
     component: UnmountedHook
+  },
+  {
+    path: '/sass-styling',
+    component: SassStyling
+  },
+  {
+    path: '/default-styling',
+    component: DefaultStyling
   }
 ]
 
