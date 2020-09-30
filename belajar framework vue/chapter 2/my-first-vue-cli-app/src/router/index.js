@@ -14,6 +14,7 @@ import BeforeUnmountHook from '../views/hookLifeCycle/beforeUnmountHook.vue'
 import UnmountedHook from '../views/hookLifeCycle/unmountedHook.vue'
 import SassStyling from '../views/styling/sassStyling.vue'
 import DefaultStyling from '../views/styling/defaultStyling.vue'
+import PropWithSetting from '../views/propsWithSetting.vue'
 
 // path berguna untuk alamat url untuk komponen yang telah kita buat
 // name berguna untuk pelabelan dan memudahkan untuk debuging(sifat opsional)
@@ -77,6 +78,10 @@ const routes = [{
   {
     path: '/default-styling',
     component: DefaultStyling
+  },
+  {
+    path: '/prop-with-setting',
+    component: PropWithSetting
   }
 ]
 
