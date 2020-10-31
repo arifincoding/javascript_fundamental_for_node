@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">click me</button>
+    <p id="demo"></p>
+</body>
+<script>
+    // jika anda ingin menambahkan parameter pada fungsi yang ada didalam event listener maka caranya sebagai berikut
+    let p1 = 10;
+    let p2 = 20;
+    document.getElementById('btn').addEventListener('click', function () {
+        myFunction(p1, p2)
+    })
+
+    function myFunction(a, b) {
+        let result = a * b;
+        document.getElementById('demo').innerHTML = result;
+    }
+</script>
+
+</html>

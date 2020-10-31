@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin-top: 10px;
+            background-color: orange;
+            padding: 100px;
+        }
+
+        p {
+            background-color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        Bubling
+        <p id="p1">click me</p>
+    </div>
+    <div id="div2">
+        capturing
+        <p id="p2">click me</p>
+    </div>
+</body>
+<script>
+    // bubling dan capturing berfungsi untuk mengatasi masalah jika kamu memiliki element di dalam element misal kamu memiliki element p didalam element div.
+    // didalam bubling event element dalam lebih dulu di eksekusi baru event element luar
+    // didalam capturing event element luar lebih dulu di eksekusi baru event element dalam
+    // secara default eventlistener akan menerapkan bubling
+    // jika anda ingin menerapkan capturing maka anda harus menambah true pada event listener misal element.addEventListener("click",myFunction(),true)
+    // jika anda ingin menerapkan bubling maka anda harus menambah false pada event listener misal element.addEventListener("click",myFunction(),false)
+
+    document.getElementById('div1').addEventListener('click', divFunction, false);
+    document.getElementById('p1').addEventListener('click', pFunction, false);
+    document.getElementById('div2').addEventListener('click', divFunction, true);
+    document.getElementById('p2').addEventListener('click', pFunction, true);
+
+    function divFunction() {
+        alert('anda menekan elemen oren')
+    }
+
+    function pFunction() {
+        alert('anda menekan elemen putih')
+    }
+</script>
+
+</html>
