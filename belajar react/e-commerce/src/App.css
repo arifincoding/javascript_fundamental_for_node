@@ -1,0 +1,32 @@
+.jumbo-tron{
+  width: 100vw;
+  height:70vh;
+  background-image: url('https://tap-assets-prod.dexecure.net/wp-content/uploads/sites/33/2019/01/pasar-tradisional-lead.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(35%);
+}
+
+.navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav-item:hover .bot-border{
+  position: relative;
+  border-bottom: solid 2px white;
+  bottom: 0;
+  width: 20px;
+}
+
+.nav-item{
+  cursor: pointer;
+}
+
+.bot-border-active{
+  position: relative;
+  border-bottom: solid 2px white;
+  bottom: 0;
+  width: 20px;
+}
