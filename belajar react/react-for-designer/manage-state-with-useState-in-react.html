@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+        function Greeting(){
+        // useState akan mereturn 2 array yaitu value dan function
+        // useState dapat digunakan berkali kali
+        // useState hanya dapat digunakan didalam function dan class
+        // jika digunakan pada class useState hanya bisa digunakan sekali
+
+        // mengitialisasi state dan mengekstrak hasil return dari useState
+        const [name, setName] = React.useState('')
+        
+        // function yang di return oleh useState bisa digunakan untuk mengubah value dari state
+        const handleName = (event)=>{
+            setName(event.target.value)
+        }
+        // contoh penggunaan react fragment dengan jsx untuk merender 2 element span
+        return (<React.Fragment>
+            <form>
+                <input onChange={handleName}/>
+            </form>
+            {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+            </React.Fragment>)
+        }
+        ReactDOM.render(<Greeting/>, rootElement);
+    </script>
+</body>
+
+</html>
