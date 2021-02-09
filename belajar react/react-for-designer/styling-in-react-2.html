@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: solid 1px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .box--small {
+            width: 100px;
+            height: 100px;
+        }
+
+        .box--medium {
+            width: 200px;
+            height: 200px;
+        }
+
+        .box--big {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+        // contoh penggunaan react fragment dengan jsx untuk merender 2 element span
+        function Box(props){
+            return(
+                <div {...props}></div>
+            )
+        }
+        const element = <React.Fragment>
+            <Box className="box box--small" style={{ fontStyle: 'italic' , backgroundColor:'skyblue' }}>this is small skyblue box</Box>
+            <Box className="box box--medium" style={{ fontStyle: 'italic' , backgroundColor:'pink' }}>this is medium pink box</Box>
+            <Box className="box box--big" style={{ fontStyle: 'italic' , backgroundColor:'orange' }}>this is big orange box</Box>
+            </React.Fragment>
+        ReactDOM.render(element, rootElement);
+    </script>
+</body>
+
+</html>
+
+<!-- note -->
+<!-- untuk inline css pada jsx kita menggunakan {{  }} dan untuk properti css dengan 2 kata kita gunakan camelCase misal background-color menjadi backgroundColor -->
+<!-- props berisi semua argumen yang di definisikan saat pemanggilan seperti classname dan style yang disimpan dalam bentuk object-->
+<!-- titik tiga pada prop berfungsi untuk mengekstrak semua properti dari parameter props -->
