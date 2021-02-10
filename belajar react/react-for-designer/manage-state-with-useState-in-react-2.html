@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+        
+        function Yutub(){
+        
+        const [state, setState] = React.useState({
+            subscribe:false,
+            like:0,
+            dislike:0
+        })
+
+        // async
+        // update state subscribe
+        const handleSubscribe = ()=>{
+            setState({
+                ...state,
+                subscribe:!state.subscribe
+            })
+        }
+        // async
+        // update state like
+        const handleLike = ()=>{
+            setState({
+                ...state,
+                like:state.like + 1
+            })
+        }
+        // async
+        // update state dislike
+        const handleDislike = ()=>{
+            setState({
+                ...state,
+                dislike:state.dislike + 1
+            })
+        }
+
+        // syncronus
+        const handlelikesync = ()=>{
+            setState((currentState)=>(
+                {
+                    ...state,
+                    like:currentState.like + 1
+                }
+            ))
+        }
+        
+        // untuk menjalankan function 3 kali berturut turut kita harus membuat function tersebut syckronus terlebih dahulu
+
+        const handleTriple = ()=>{
+            handlelikesync()
+            handlelikesync()
+            handlelikesync()
+        }
+
+        // contoh penggunaan react fragment dengan jsx untuk merender 2 element span
+        return ( <React.Fragment>
+            <button onClick={handleSubscribe}>subscribe</button>
+            <span>{JSON.stringify(state.subscribe)}</span>
+            <br/>
+            <button onClick={handleLike}>like</button>
+            <span>{state.like}</span>
+            <br/>
+            <button onClick={handleDislike}>dislike</button>
+            <span>{state.dislike}</span>
+            <br/>
+            <button onClick={handleTriple}>like</button>
+            <span>{state.like}</span>
+            </React.Fragment>
+        );
+        }
+
+        ReactDOM.render(<Yutub/>, rootElement);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+        
+        function Coba(){
+            const [toggle, setToggle] = React.useState(true)
+
+            const handleToggle = ()=>{
+                setToggle(currentState => !currentState)
+            }
+            // contoh penggunaan react fragment dengan jsx untuk merender 2 element span
+            return ( <React.Fragment>
+                <button onClick={handleToggle}>toggle</button>
+                {toggle && <LifeCycle/>}
+                </React.Fragment>
+            )
+        }
+
+        function LifeCycle(){
+
+            const [state, setState] = React.useState('')
+            
+
+            const handleInput = (event)=>{
+                setState(event.target.value)
+            }
+
+            // componentDidMount
+            // ini akan dijalankan hanya sekali saat component pertama kali dirender dan dijalankan setelah proses render
+            React.useEffect(()=>{
+                console.log('componetDidMount equivalent')
+            },[])
+
+            // componentDidUpdate
+            // ini akan dijalankan pada setiap ada perubahan data pada component yang dirender
+            React.useEffect(()=>{
+                if(state){
+                    console.log('componentDidUpdate equivalent')
+                }
+            },[state])
+
+            // componentDidUnMount
+            // ini akan dijalankan pada saat component di hapus
+            React.useEffect(()=>{
+                // clean-up function
+                return (()=>{
+                    console.log('componentDidUnMount')
+                })
+            },[])
+
+            console.log('component di render')
+
+            // contoh penggunaan react fragment dengan jsx untuk merender 2 element span
+            return ( <React.Fragment>
+                <br/>
+                <input type="text" onChange={handleInput}/>
+                <div>{state}</div>
+                </React.Fragment>
+            )
+            
+        }
+        ReactDOM.render(<Coba/>, rootElement);
+    </script>
+</body>
+
+</html>
