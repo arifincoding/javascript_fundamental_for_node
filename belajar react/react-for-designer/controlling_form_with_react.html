@@ -1,0 +1,39 @@
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+        
+        function UsernameForm() {
+            
+            const [username, setUsername] = React.useState('')
+
+            function handleInput(event){
+                // untuk mencegah page refresh ketika user menekan enter pada form
+                event.preventDefault()
+                alert('hello '+ username)
+            }
+            // membuat iput usename menjadi lowercase
+            function handleUsername(event){
+                setUsername(event.target.value.toLowerCase())
+            }
+
+            console.log('rendered')
+
+            return (
+                <>
+                    <form onSubmit={handleInput}>
+                        <input id="usernameInput" type="text" onChange={handleUsername} value={username} />
+                        <br/>
+                        <button type="submit">submit</button>
+                    </form>
+                </>
+            )
+        }
+
+        ReactDOM.render(<UsernameForm/>, rootElement);
+    </script>
+</body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+
+        function useLocalStorageState(key, defaultValue=''){
+
+            const [state, setState] = React.useState(()=>{
+                console.log('ini initializer')
+                return window.localStorage.getItem(key) || defaultValue
+            })
+
+            React.useEffect(()=>{
+                console.log( key +' updated')
+                window.localStorage.setItem(key,state)
+            },[state])
+
+            return [state, setState]
+        }
+
+        function Greeting(){
+            
+            const [name, setName] = useLocalStorageState('name')
+
+            console.log('rendered')
+            const handleChange = event => setName(event.target.value)
+
+            return (
+                <React.Fragment>
+                    <input type="text" onChange={handleChange}/>
+                    <div>Hello {name}</div>
+                </React.Fragment>
+            )
+        }
+        ReactDOM.render(<Greeting/>, rootElement);
+    </script>
+</body>
+
+</html>

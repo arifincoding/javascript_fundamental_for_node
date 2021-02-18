@@ -1,0 +1,32 @@
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+
+        function Greeting(){
+            const allItems = [
+                {id:1,value:'apple'},
+                {id:2,value:'mangga'},
+                {id:3,value:'jeruk'},
+                {id:4,value:'melon'}
+            ]
+
+            return(
+                <>
+                    <ul>
+                        {allItems.map((data, key) =>(
+                            <li key={key}>{data.value}</li>
+                        ))}
+                    </ul>
+                </>
+            )
+        }
+        ReactDOM.render(<Greeting/>,rootElement)
+    </script>
+</body>
+
+<!-- react list adalah looping -->

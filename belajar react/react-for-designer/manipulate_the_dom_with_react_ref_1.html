@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+
+        function Greeting(){
+            // membuat ref dengan fungsi useRef dan menginisialisasinya
+            const usernameRef = React.useRef(null)
+            const passwordRef = React.useRef(null)
+
+            React.useEffect(()=>{
+                // variableRef.current.ubah digunakan untuk memanipulasi
+                // pada case kali ini saat komponen dirender maka input username otomatis fokus 
+                usernameRef.current.focus()
+            },[])
+
+            const usernameNext = (event)=>{
+                if(event.key === "Enter"){
+                    // mengubah input password menjadi focus
+                    passwordRef.current.focus()
+                }
+            }
+
+            console.log('rendered')
+            return (
+                <React.Fragment>
+                    <label>username : </label>
+                    <input type="text" ref={usernameRef} onKeyDown={usernameNext}/>
+                    <br/>
+                    <br/>
+                    <label>password : </label>
+                    <input type="text" ref={passwordRef}/>
+                    <div>Hello {name}</div>
+                </React.Fragment>
+            )
+        }
+        ReactDOM.render(<Greeting/>, rootElement);
+    </script>
+</body>
+
+</html>
+
+<!-- useRef berfungsi untuk memanipulasi dom tanpa harus render ulang dom -->
+<!-- useRef cocok digunakan  pada saat-->
+<!-- mengintegrasikan react dengan library pihak ke tiga -->
+<!-- mentriger animasi pada suatu element html -->
+<!-- Saat kita ingin mengatur fokus pada Form, seleksi teks, mengontrol video atau audio, dll -->

@@ -1,0 +1,36 @@
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <!-- babel berfungsi sebagai compile jsx agar script jsx dapat berjalan -->
+    <script type="text/babel">
+        const rootElement = document.getElementById('root');
+        
+        function UsernameForm() {
+            function handleInput(event){
+                // untuk mencegah page refresh ketika user menekan enter pada form
+                event.preventDefault()
+                // untuk melihat properti apa saja yang ada di dalam form
+                console.dir(event.target)
+
+                // event.target : mengambil form
+                // elements : mengambil element pada form
+                // usernameInput : id pada element yang di inginkan
+                // value : mengambil value pada element berdasarkan id
+                const username = event.target.elements.usernameInput.value
+                alert('hello '+ username)
+            }
+            return (
+                <>
+                    <form onSubmit={handleInput}>
+                        <input id="usernameInput" type="text" />
+                        <button type="submit">submit</button>
+                    </form>
+                </>
+            )
+        }
+
+        ReactDOM.render(<UsernameForm/>, rootElement);
+    </script>
+</body>
