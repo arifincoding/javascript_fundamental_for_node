@@ -9,7 +9,7 @@ describe('value variable n is null',()=>{
         expect(n).toBeDefined();//bernilai benar jika value n di definisikan (value n bukan undefined)
     })
     it('value n adalah undefined',()=>{
-        expect(n).toBeUndefined();//bernilai benar jika value n adalah undefined
+        expect(n).toBeUndefined();//bernilai benar jika value n adalah undefinedr
     })
     it('statement benar',()=>{
         expect(n).toBeTruthy();//bernilai benar jika pernyataan di perlakukan dengan benars
